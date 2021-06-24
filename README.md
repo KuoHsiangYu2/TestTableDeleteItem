@@ -27,12 +27,12 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <Context displayName="TestTableDeleteItem"
-    docBase="TestTableDeleteItem" path="/TestTableDeleteItem"
-    reloadable="true">
-    <Resource name="/jdbc/TestTableDeleteItem" auth="Container"
-        type="javax.sql.DataSource" username="『資料庫帳號名稱』" password="『資料庫帳號密碼』"
-        driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-        url="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=DB08" maxTotal="『連線池物件最大數量』"
-        maxIdle="『連線池物件預設數量』" maxWaitMillis="10000" />
+	docBase="TestTableDeleteItem" path="/TestTableDeleteItem"
+	reloadable="true">
+	<Resource name="/jdbc/TestTableDeleteItem" auth="Container"
+		type="javax.sql.DataSource" username="『資料庫帳號名稱』" password="『資料庫帳號密碼』"
+		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		url="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=DB08" maxTotal="『連線池物件最大數量』"
+		maxIdle="『連線池物件預設數量』" maxWaitMillis="10000" />
 </Context>
 ```
