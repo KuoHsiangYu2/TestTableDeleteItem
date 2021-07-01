@@ -71,7 +71,8 @@ public class DeleteCustomerById extends HttpServlet {
             System.out.println("executeNumber -> [" + executeNumber + "]");
         }
 
-        response.setStatus(HttpServletResponse.SC_OK);
+        // response.setStatus(HttpServletResponse.SC_OK);
+        response.setStatus(200);
 
         PrintWriter out = response.getWriter();
         out.print("delete customer data successful");

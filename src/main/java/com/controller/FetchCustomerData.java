@@ -63,7 +63,8 @@ public class FetchCustomerData extends HttpServlet {
             unit = null;
         }
 
-        response.setStatus(HttpServletResponse.SC_OK);
+        // response.setStatus(HttpServletResponse.SC_OK);
+        response.setStatus(200);
 
         /* 把資料包裝成JSON格式打出到前端 */
         PrintWriter out = response.getWriter();

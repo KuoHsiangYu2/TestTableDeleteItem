@@ -2,21 +2,16 @@
 <html lang="zh-TW">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <title>index</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<title>index</title>
 </head>
 
 <body>
     <div align="center">
         <h1>index</h1>
-        <input type="button" id="deleteButton" name="deleteButton" value="刪除選中資料" />
-        &nbsp;
-        &nbsp;
-        <input type="button" id="resetButton" name="resetButton" value="復原" />
-        <br />
-        <br />
+        <input type="button" id="deleteButton" name="deleteButton" value="刪除選中資料" /> &nbsp; &nbsp; <input type="button" id="resetButton" name="resetButton" value="復原" /> <br /> <br />
         <table id="customerTable" name="customerTable" border="1" width="60%">
             <thead>
                 <tr>
@@ -32,9 +27,19 @@
         </table>
     </div>
 
-    <div id="makeHeight">
-    </div>
+    <div id="makeHeight"></div>
 
+    <div id="indexHtml"></div>
+    <script type="text/javascript">
+        (function() {
+            let indexHtml = document.getElementById('indexHtml');
+
+            /* for JSP page */
+            // indexHtml['contextPath'] = String('${pageContext.request.contextPath}').toString();
+
+            indexHtml['contextPath'] = window.location.href;
+        })();
+    </script>
     <script type="text/javascript" src="./index.js"></script>
 </body>
 

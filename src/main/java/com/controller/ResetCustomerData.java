@@ -40,7 +40,8 @@ public class ResetCustomerData extends HttpServlet {
         ICustomerDao customerDao = new CustomerMSSQLDaoImpl();
         customerDao.resetCustomerData();
 
-        response.setStatus(HttpServletResponse.SC_OK);
+        // response.setStatus(HttpServletResponse.SC_OK);
+        response.setStatus(200);
 
         PrintWriter out = response.getWriter();
         out.print("reset customer data successful");

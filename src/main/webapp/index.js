@@ -1,5 +1,9 @@
 'use strict';
 
+let indexHtml = document.getElementById('indexHtml');
+let contextPath = indexHtml['contextPath'];
+// console.log('contextPath');
+// console.log(contextPath);
 let tableBodyObj = document.querySelector('#customerTable > tbody');
 let tableData = [];
 
@@ -44,14 +48,16 @@ function fetchCustomerTableData() {
     /* 使用 AJAX技術 發送 POST請求 呼叫後端API， */
     /* 接著去接收後端API回傳給前端的資料。 */
     var xmlHttpRequest = new XMLHttpRequest();
-    xmlHttpRequest.onload = function() {
-        var data = xmlHttpRequest.responseText;
-        console.log('xmlHttpRequest data');
-        console.log(data);
-        tableData = JSON.parse(data);
-        deleteItem();
+    xmlHttpRequest.onreadystatechange = function() {
+        if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+            var data = xmlHttpRequest.responseText;
+            console.log('xmlHttpRequest data');
+            console.log(data);
+            tableData = JSON.parse(data);
+            deleteItem();
+        }
     }
-    xmlHttpRequest.open('post', 'FetchCustomerData', true);
+    xmlHttpRequest.open('post', contextPath + 'FetchCustomerData', true);
     xmlHttpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xmlHttpRequest.setRequestHeader('If-Modified-Since', '0');
     xmlHttpRequest.setRequestHeader('Pragma', 'no-cache');
@@ -81,14 +87,16 @@ deleteButtonObj.addEventListener('click', function(event) {
 
     /* 下一個步驟，透過 AJAX 把要刪除的會員id打到後端去。 */
     var xmlHttpRequest2 = new XMLHttpRequest();
-    xmlHttpRequest2.onload = function() {
-        var data = xmlHttpRequest2.responseText;
-        console.log('xmlHttpRequest2 data');
-        console.log(data);
-        fetchCustomerTableData();
+    xmlHttpRequest2.onreadystatechange = function() {
+        if (xmlHttpRequest2.readyState == 4 && xmlHttpRequest2.status == 200) {
+            var data = xmlHttpRequest2.responseText;
+            console.log('xmlHttpRequest2 data');
+            console.log(data);
+            fetchCustomerTableData();
+        }
     }
 
-    xmlHttpRequest2.open('post', 'DeleteCustomerById', true);
+    xmlHttpRequest2.open('post', contextPath + 'DeleteCustomerById', true);
     xmlHttpRequest2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xmlHttpRequest2.setRequestHeader('If-Modified-Since', '0');
     xmlHttpRequest2.setRequestHeader('Pragma', 'no-cache');
@@ -103,14 +111,16 @@ var resetButtonObj = document.getElementById('resetButton');
 resetButtonObj.addEventListener('click', function(event) {
     console.log('resetButtonObj click');
     var xmlHttpRequest3 = new XMLHttpRequest();
-    xmlHttpRequest3.onload = function() {
-        var data = xmlHttpRequest3.responseText;
-        console.log('xmlHttpRequest3 data');
-        console.log(data);
-        fetchCustomerTableData();
+    xmlHttpRequest3.onreadystatechange = function() {
+        if (xmlHttpRequest3.readyState == 4 && xmlHttpRequest3.status == 200) {
+            var data = xmlHttpRequest3.responseText;
+            console.log('xmlHttpRequest3 data');
+            console.log(data);
+            fetchCustomerTableData();
+        }
     }
 
-    xmlHttpRequest3.open('post', 'ResetCustomerData', true);
+    xmlHttpRequest3.open('post', contextPath + 'ResetCustomerData', true);
     xmlHttpRequest3.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xmlHttpRequest3.setRequestHeader('If-Modified-Since', '0');
     xmlHttpRequest3.setRequestHeader('Pragma', 'no-cache');
